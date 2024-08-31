@@ -1,0 +1,32 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+import time
+driver=webdriver.Chrome()
+driver.get("https://www.facebook.com/r.php?locale=en_GB&display=page")
+driver.maximize_window()
+fname=driver.find_element(By.XPATH,"//input[@name='firstname']").send_keys('Pramod')
+time.sleep(1)
+surname=driver.find_element(By.CSS_SELECTOR,"input[name='lastname']").send_keys('Chandan')
+time.sleep(1)
+Mob=driver.find_element(By.XPATH,"//input[@name='reg_email__']").send_keys(9090909090)
+time.sleep(1)
+pws=driver.find_element(By.NAME,"reg_passwd__").send_keys('Pramod@900909')
+time.sleep(1)
+Day=Select(driver.find_element(By.XPATH,"//select[@id='day']"))
+time.sleep(1)
+Day.select_by_index(8)
+time.sleep(1)
+Mon=Select(driver.find_element(By.CSS_SELECTOR,"#month"))
+time.sleep(1)
+Mon.select_by_visible_text('Apr')
+time.sleep(1)
+Year=Select(driver.find_element(By.XPATH,"//select[@id='year']"))
+time.sleep(1)
+Year.select_by_value('1990')
+time.sleep(1)
+Gender=driver.find_element(By.XPATH,"//label[text()='Male']").click()
+time.sleep(1)
+sub=driver.find_element(By.XPATH,"//button[@type='submit']").click()
+time.sleep(1)
